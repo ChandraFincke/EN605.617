@@ -1,0 +1,1 @@
+![Performance comparison chart](performance_comparison.png)
