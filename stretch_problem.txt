@@ -1,0 +1,11 @@
+Strengths
+- Incorporating argc allows for rapid iteration of grid and block dimensions
+- Correctly places the host/device memory transfers (cudaMemcpy) outside the timer boundaries to measure raw compute time, rather than PCI-e bottleneck overhead
+- Symmetrical memory management is solid. Every cudaMalloc is paired with a corresponding cudaFree to prevent VRAM leakage
+
+Weaknessnes
+- GPU kernel launches are asynchronous. Because the author omitted cudaDeviceSynchronize() before stop, the chrono clock only measures the CPU time required to queue the kernel to the GPU. The kernel likely executes while the subsequent blocking cudaMemcpy is called
+- Declaring int a[N], b[N], c[N]; allocates memory directly on the CPU stack. This would be allocating millions of integers and will instantly trigger a segmentation fault. I would have liked to see some heap-allocation (e.g., using malloc or new)
+- There is zero error-handling logic for the CUDA API calls. If cudaMalloc fails due to insufficient memory it will leave dev_a as a null or garbage pointer, which will cause a fatal crash during cudaMemcpy
+- atoi() is brittle for system inputs. It provides no bounds checking and returns 0 when encountering non-numeric characters. An invalid input will result in a zero-thread or zero-block launch parameter
+- The hardcoded default of 192 total threads (3 blocks of 64) is disconnected from the dataset size N. Unless the unseen add kernel implements a grid-stride loop, this configuration will process only the first 192 elements of the array and abandon the rest
