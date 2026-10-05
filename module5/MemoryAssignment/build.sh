@@ -1,0 +1,1 @@
+nvcc -O3 -o memory_assignment memory_assignment.cu
