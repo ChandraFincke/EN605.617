@@ -1,14 +1,10 @@
 assignment_name: MemoryAssignment
-child_directory: module5/MemoryAssignment
+folder: module5/MemoryAssignment
 
 build:
-
-[]
+  - []
 
 run:
-
-[-t, "64", -b, "32"]
-
-[-t, "128", -b, "16"]
-
-[-t, "256", -b, "64"]
+  - [-t, "64", -b, "32"]
+  - [-t, "128", -b, "16"]
+  - [-t, "256", -b, "64"]
