@@ -1,0 +1,39 @@
+🚀 Project: EN605.617
+ℹ️  On branch 'main' — running git pull...
+✅ git pull complete
+Already up to date.
+🚀 BUILD: executing build.sh 
+❌ BUILD FAILED (exit code 1)
+NVCC FATAL   : CANNOT FIND COMPILER 'CL.EXE' IN PATH
+🚀 RUN [1/3]: executing run.sh -t 64
+✅ RUN [1/3] completed successfully
+
+==========================================
+Threads Per Block  : 64
+Blocks Per Grid    : 262144
+Synchronous Time   : 51.268032 ms
+Asynchronous Time  : 9.587872 ms
+Performance Speedup: 5.35x
+==========================================
+🚀 RUN [2/3]: executing run.sh -t 128
+✅ RUN [2/3] completed successfully
+
+==========================================
+Threads Per Block  : 128
+Blocks Per Grid    : 131072
+Synchronous Time   : 14.944896 ms
+Asynchronous Time  : 9.416992 ms
+Performance Speedup: 1.59x
+==========================================
+🚀 RUN [3/3]: executing run.sh -t 256
+✅ RUN [3/3] completed successfully
+
+==========================================
+Threads Per Block  : 256
+Blocks Per Grid    : 65536
+Synchronous Time   : 15.232704 ms
+Asynchronous Time  : 9.371328 ms
+Performance Speedup: 1.63x
+==========================================
+✅ RUN summary: 3/3 configurations succeeded
+ℹ️  Full output written to assignment_output.txt

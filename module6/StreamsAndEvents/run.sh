@@ -1,0 +1,1 @@
+if [ -f "./streams_events.exe" ]; then ./streams_events.exe "$@"; else ./streams_events "$@"; fi

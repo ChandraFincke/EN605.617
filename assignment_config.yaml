@@ -1,10 +1,10 @@
-assignment_name: MemoryAssignment
-folder: module5/MemoryAssignment
+assignment_name: StreamsAndEvents
+folder: module6/StreamsAndEvents
 
 build:
   - []
 
 run:
-  - [-t, "64", -b, "32"]
-  - [-t, "128", -b, "16"]
-  - [-t, "256", -b, "64"]
+  - [-t, "64"]
+  - [-t, "128"]
+  - [-t, "256"]

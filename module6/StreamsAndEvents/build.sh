@@ -1,0 +1,1 @@
+nvcc -O3 -o streams_events streams_events.cu
